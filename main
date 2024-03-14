@@ -20,7 +20,7 @@ class main {
 			System.out.println("0 - Sair");
 
 			int opcao = scanner.nextInt();
-			scanner.nextLine(); // Limpar o buffer do scanner
+			scanner.nextLine(); // Limpar o scanner
 
 			switch (opcao) {
 			case 0:
@@ -31,12 +31,13 @@ class main {
 				String nome = scanner.nextLine();
 				System.out.println("Digite o código do produto:");
 				String codigo = scanner.nextLine();
-				
 				System.out.println("Digite o preço do produto:");
 				double preco = scanner.nextDouble();
 				System.out.println("Digite a quantidade em estoque do produto:");
 				int quantidade = scanner.nextInt();
-				scanner.nextLine(); // Limpar o buffer do scanner
+				
+				scanner.nextLine(); // Limpar o scanner
+				
 				System.out.println("Digite o fornecedor do produto:");
 				String fornecedor = scanner.nextLine();
 
@@ -48,7 +49,7 @@ class main {
 				String cod = scanner.nextLine();
 				System.out.println("Digite a quantidade vendida:");
 				int qtd = scanner.nextInt();
-				scanner.nextLine(); // Limpar o buffer do scanner
+				scanner.nextLine(); 
 				estoque.realizarVenda(cod, qtd);
 				break;
 			case 3:
@@ -78,7 +79,6 @@ class main {
 				System.out.println("Opção inválida!");
 				break;
 			}
-			scanner.close();
 		}
 	}
 
