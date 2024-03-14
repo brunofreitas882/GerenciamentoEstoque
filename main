@@ -1,120 +1,85 @@
 package gerenciador_estoque;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
-class Produto {
-	private String nome;
-	private String codigo;
-	private double preco;
-	private int quantidadeEstoque;
-	private String fornecedor;
+class main {
 
-	public Produto(String nome, String codigo, double preco, int quantidadeEstoque, String fornecedor) {
-		this.nome = nome;
-		this.codigo = codigo;
-		this.preco = preco;
-		this.quantidadeEstoque = quantidadeEstoque;
-		this.fornecedor = fornecedor;
-	}
+	public static void main(String[] args) {
 
-	public String getNome() {
-		return nome;
-	}
+		Scanner scanner = new Scanner(System.in);
+		estoque estoque = new estoque();
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+		while (true) {
+			System.out.println("\nSelecione uma opção:");
+			System.out.println("1 - Cadastrar produto");
+			System.out.println("2 - Realizar venda");
+			System.out.println("3 - Listar todos os produtos");
+			System.out.println("4 - Listar produtos com estoque baixo");
+			System.out.println("5 - Buscar produto");
+			System.out.println("6 - Relatório do valor total do estoque");
+			System.out.println("0 - Sair");
 
-	public String getCodigo() {
-		return codigo;
-	}
+			int opcao = scanner.nextInt();
+			scanner.nextLine(); // Limpar o buffer do scanner
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
+			switch (opcao) {
+			case 0:
+				System.out.println("Tchau!...");
+				return;
+			case 1:
+				System.out.println("Digite o nome do produto:");
+				String nome = scanner.nextLine();
+				System.out.println("Digite o código do produto:");
+				String codigo = scanner.nextLine();
+				
+				System.out.println("Digite o preço do produto:");
+				double preco = scanner.nextDouble();
+				System.out.println("Digite a quantidade em estoque do produto:");
+				int quantidade = scanner.nextInt();
+				scanner.nextLine(); // Limpar o buffer do scanner
+				System.out.println("Digite o fornecedor do produto:");
+				String fornecedor = scanner.nextLine();
 
-	public double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-
-	public int getQuantidadeEstoque() {
-		return quantidadeEstoque;
-	}
-
-	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		this.quantidadeEstoque = quantidadeEstoque;
-	}
-
-	public String getFornecedor() {
-		return fornecedor;
-	}
-
-	public void setFornecedor(String fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-}
-
-class Estoque {
-	ArrayList<Produto> produtos = new ArrayList<>();
-
-	public void cadastrarProduto(Produto produto) {
-		produtos.add(produto);
-		System.out.println("Produto cadastrado com sucesso!");
-	}
-
-	public void realizarVenda(String codigo, int quantidade) {
-		for (Produto produto : produtos) {
-			if (produto.getCodigo().equals(codigo)) {
-				if (produto.getQuantidadeEstoque() >= quantidade) {
-					produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() - quantidade);
-					System.out.println("Venda realizada com sucesso!");
-					return;
+				Produto novoProduto = new Produto(nome, codigo, preco, quantidade, fornecedor);
+				estoque.cadastrarProduto(novoProduto);
+				break;
+			case 2:
+				System.out.println("Digite o código do produto:");
+				String cod = scanner.nextLine();
+				System.out.println("Digite a quantidade vendida:");
+				int qtd = scanner.nextInt();
+				scanner.nextLine(); // Limpar o buffer do scanner
+				estoque.realizarVenda(cod, qtd);
+				break;
+			case 3:
+				estoque.listarProdutos();
+				break;
+			case 4:
+				estoque.listarProdutosEstoqueBaixo();
+				break;
+			case 5:
+				System.out.println("Digite o código ou nome do produto:");
+				String codnome = scanner.nextLine();
+				Produto produtoBuscado = estoque.buscarProduto(codnome, codnome);
+				if (produtoBuscado != null) {
+					System.out.println("Produto encontrado:");
+					System.out.println("Nome: " + produtoBuscado.getNome() + ", Código: " + produtoBuscado.getCodigo()
+							+ ", Preço: " + produtoBuscado.getPreco() + ", Quantidade em estoque: "
+							+ produtoBuscado.getQuantidadeEstoque() + ", Fornecedor: "
+							+ produtoBuscado.getFornecedor());
 				} else {
-					System.out.println("Quantidade insuficiente em estoque!");
-					return;
+					System.out.println("Produto não encontrado!");
 				}
+				break;
+			case 6:
+				System.out.println("O valor total do estoque é: " + estoque.calcularValorTotalEstoque());
+				break;
+			default:
+				System.out.println("Opção inválida!");
+				break;
 			}
-		}
-		System.out.println("Produto não encontrado!");
-	}
-
-	public void listarProdutos() {
-		for (Produto produto : produtos) {
-			System.out.println("Nome: " + produto.getNome() + ", Código: " + produto.getCodigo() + ", Preço: "
-					+ produto.getPreco() + ", Quantidade em estoque: " + produto.getQuantidadeEstoque()
-					+ ", Fornecedor: " + produto.getFornecedor());
+			scanner.close();
 		}
 	}
 
-	public void listarProdutosEstoqueBaixo() {
-		int quantidadeMinima = 5;
-		for (Produto produto : produtos) {
-			if (produto.getQuantidadeEstoque() < quantidadeMinima) {
-				System.out.println(
-						"Nome: " + produto.getNome() + ", Quantidade em estoque: " + produto.getQuantidadeEstoque());
-			}
-		}
-	}
-
-	public Produto buscarProduto(String codigo, String nome) {
-		for (Produto produto : produtos) {
-			if (produto.getCodigo().equals(codigo) || produto.getNome().equals(nome)) {
-				return produto;
-			}
-		}
-		return null;
-	}
-
-	public double calcularValorTotalEstoque() {
-		double total = 0;
-		for (Produto produto : produtos) {
-			total += produto.getPreco() * produto.getQuantidadeEstoque();
-		}
-		return total;
-	}
 }
-
