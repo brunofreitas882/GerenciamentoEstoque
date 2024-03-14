@@ -1,0 +1,177 @@
+Documentação Gerenciamento de Estoque
+
+Desenvolvedores
+
+Nome: Adriano
+
+Nome: Bruno
+
+Nome: Jamerson
+
+Nome: Matheus
+
+INDICE DETALHADO
+
+PREFACIO.
+
+1. INTRODUÇÃO AO DOCUMENTO.
+
+1.1. OBJETIVO DO PROJETO
+
+ Nosso objetivo é estabelecer um controle de armazenamento de estoque, utilizado um Software.
+
+Como forma de controle, facilitando o cadastro, a localização e o controle do armazenamento dos 
+
+dados.
+
+Como um gerenciamento de estoque dinâmico temos como alvo o mercado industrial, varejistas e 
+
+pequenas lojas, A proposta principal é o controle do que entra e saí dentro do local de trabalho, 
+
+atribuindo a segurança no controle de estoque da empresa. 
+
+1.2. JUSTIFICATIVA DA ESCOLHA DO TEMA
+
+O gerenciamento de estoque é uma área fundamental para o sucesso e a eficiência de qualquer 
+
+negócio que lida com a produção, armazenamento ou venda de produtos. A escolha deste tema se 
+
+baseia na sua importância estratégica para o funcionamento e a competitividade de uma empresa 
+
+em diversos setores da economia.
+
+Portanto, a escolha do tema "gerenciamento de estoque" se justifica pela sua relevância na gestão 
+
+empresarial moderna.
+
+2. DESCRIÇÃO GERAL DO SISTEMA.
+
+O sistema é responsável por controlar os produtos cadastrados, permitindo a realização de vendas 
+
+por meio dele. Além disso, gera relatórios sobre todos os produtos cadastrados, incluindo o valor 
+
+total em estoque e uma lista dos produtos com estoque abaixo do ideal. Ele também oferece a 
+
+funcionalidade de busca por produtos cadastrados e a geração de relatórios sobre o valor total no 
+
+estoque.
+
+3. REQUISITOS DO SISTEMA.
+
+ O sistema deve permitir o cadastro completo de produtos, incluindo nome, descrição, código, preço
+
+de venda, quantidade em estoque.
+
+ O sistema deve efetuar a realização de vendas.
+
+Deve ser possível gerar relatórios sobre todos os produtos cadastrados, incluindo detalhes como 
+
+nome, código, preço, quantidade em estoque.
+
+ Deve existir uma funcionalidade de busca que permita localizar rapidamente produtos específicos 
+
+com base em critérios como nome ou código.
+
+A busca deve ser eficiente e intuitiva, facilitando a localização de itens no sistema.
+
+4. MANUAL DO USUÁRIO.
+
+Manual do Usuário - Sistema de Gerenciamento de Estoque.
+
+Este manual descreve as funcionalidades e o uso do Sistema de Gerenciamento de Estoque, usando 
+
+a linguagem de programação Java, desenvolvido para auxiliar na gestão de produtos em um 
+
+estoque
+
+Bem-vindo ao Sistema de Gerenciamento de Estoque! Este manual fornecerá orientações sobre 
+
+como utilizar todas as funcionalidades disponíveis no sistema para facilitar o controle e a gestão dos
+
+produtos em estoque.
+
+1. Cadastro de Produtos:
+
+Para adicionar um novo produto ao estoque, siga os passos abaixo:
+
+- Clique na opção "Cadastro de Produtos" no menu principal.
+
+- Preencha todas as informações solicitadas, como nome, código, preço, quantidade em estoque e 
+
+fornecedor.
+
+IMAGEM
+
+- Uma mensagem de confirmação será exibida, indicando que o produto foi cadastrado com 
+
+sucesso.
+
+2. Realização de Vendas:
+
+Para efetuar uma venda de um produto, execute as seguintes etapas:
+
+- Acesse a opção "Realizar Venda" no menu principal.
+
+- Informe o código do produto que deseja vender e a quantidade desejada.
+
+IMAGEM
+
+- O sistema verificará se há quantidade suficiente em estoque para realizar a venda. Se a quantidade
+
+disponível for adequada, a venda será registrada com sucesso.
+
+3. Consulta de Produtos:
+
+Para visualizar todos os produtos cadastrados no sistema, utilize a opção "Consultar Produtos" no 
+
+menu principal.
+
+IMAGEM
+
+- A lista de produtos será exibida, mostrando informações como nome, código, preço, quantidade 
+
+em estoque e fornecedor.
+
+4. Relatório de Produtos com Estoque Baixo:
+
+O sistema permite gerar um relatório dos produtos que estão com estoque abaixo do mínimo 
+
+estabelecido.
+
+- Selecione a opção "Relatório de Estoque Baixo" no menu principal.
+
+- Informe a quantidade mínima desejada para que um produto seja considerado com estoque baixo.
+
+- Clique na opção "Gerar Relatório" para visualizar a lista de produtos com estoque abaixo do 
+
+mínimo definido.
+
+IMAGEM
+
+5. Busca de Produtos:
+
+Caso precise encontrar um produto específico, utilize a opção de busca disponível no sistema.
+
+- Acesse a opção "Buscar Produto" no menu principal.
+
+- Informe o código ou o nome do produto que deseja encontrar e clique no botão "Buscar".
+
+- Se o produto estiver cadastrado no sistema, suas informações serão exibidas na tela.
+
+IMAGEM
+
+6. Consulta do Valor Total em Estoque:
+
+Para saber o valor total de todos os produtos em estoque, siga estas instruções:
+
+- Selecione a opção "Consultar Valor Total em Estoque" no menu principal.
+
+- O sistema calculará automaticamente o valor total do estoque com base nos preços e quantidades 
+
+de cada produto cadastrado.
+
+IMAGEM
+
+Aproveite todas as funcionalidades oferecidas pelo Sistema de Gerenciamento de Estoque e 
+
+mantenha seu estoque organizado e eficiente!
