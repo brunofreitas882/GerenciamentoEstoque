@@ -28,9 +28,9 @@ class estoque {
 
 	public void listarProdutos() {
 		for (Produto produto : produtos) {
-			System.out.println("Nome: " + produto.getNome() + ", Código: " + produto.getCodigo() + ", Preço: "
-					+ produto.getPreco() + ", Quantidade em estoque: " + produto.getQuantidadeEstoque()
-					+ ", Fornecedor: " + produto.getFornecedor());
+			System.out.println("Nome: " + produto.getNome() + "| Código: " + produto.getCodigo() + "| Preço: "
+					+ produto.getPreco() + "| Quantidade em estoque: " + produto.getQuantidadeEstoque()
+					+ "| Fornecedor: " + produto.getFornecedor());
 		}
 	}
 
