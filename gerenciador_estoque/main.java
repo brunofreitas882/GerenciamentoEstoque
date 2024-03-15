@@ -1,0 +1,85 @@
+package gerenciador_estoque;
+
+import java.util.Scanner;
+
+class main {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		estoque estoque = new estoque();
+
+		while (true) {
+			System.out.println("\nSelecione uma opção:");
+			System.out.println("1 - Cadastrar produto");
+			System.out.println("2 - Realizar venda");
+			System.out.println("3 - Listar todos os produtos");
+			System.out.println("4 - Listar produtos com estoque baixo");
+			System.out.println("5 - Buscar produto");
+			System.out.println("6 - Relatório do valor total do estoque");
+			System.out.println("0 - Sair");
+
+			int opcao = scanner.nextInt();
+			scanner.nextLine(); // Limpar o scanner
+
+			switch (opcao) {
+			case 0:
+				System.out.println("Tchau!...");
+				return;
+			case 1:
+				System.out.println("Digite o nome do produto:");
+				String nome = scanner.nextLine();
+				System.out.println("Digite o código do produto:");
+				String codigo = scanner.nextLine();
+				System.out.println("Digite o preço do produto:");
+				double preco = scanner.nextDouble();
+				System.out.println("Digite a quantidade em estoque do produto:");
+				int quantidade = scanner.nextInt();
+				
+				scanner.nextLine(); // Limpar o scanner
+				
+				System.out.println("Digite o fornecedor do produto:");
+				String fornecedor = scanner.nextLine();
+
+				Produto novoProduto = new Produto(nome, codigo, preco, quantidade, fornecedor);
+				estoque.cadastrarProduto(novoProduto);
+				break;
+			case 2:
+				System.out.println("Digite o código do produto:");
+				String cod = scanner.nextLine();
+				System.out.println("Digite a quantidade vendida:");
+				int qtd = scanner.nextInt();
+				scanner.nextLine(); 
+				estoque.realizarVenda(cod, qtd);
+				break;
+			case 3:
+				estoque.listarProdutos();
+				break;
+			case 4:
+				estoque.listarProdutosEstoqueBaixo();
+				break;
+			case 5:
+				System.out.println("Digite o código ou nome do produto:");
+				String codnome = scanner.nextLine();
+				Produto produtoBuscado = estoque.buscarProduto(codnome, codnome);
+				if (produtoBuscado != null) {
+					System.out.println("Produto encontrado:");
+					System.out.println("Nome: " + produtoBuscado.getNome() + ", Código: " + produtoBuscado.getCodigo()
+							+ ", Preço: " + produtoBuscado.getPreco() + ", Quantidade em estoque: "
+							+ produtoBuscado.getQuantidadeEstoque() + ", Fornecedor: "
+							+ produtoBuscado.getFornecedor());
+				} else {
+					System.out.println("Produto não encontrado!");
+				}
+				break;
+			case 6:
+				System.out.println("O valor total do estoque é: R$ " + estoque.calcularValorTotalEstoque());
+				break;
+			default:
+				System.out.println("Opção inválida!");
+				break;
+			}
+		}
+	}
+
+}
